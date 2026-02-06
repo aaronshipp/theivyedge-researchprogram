@@ -1,0 +1,66 @@
+{
+  "programInfo": {
+    "name": "The Ivy Edge Research Program",
+    "mission": "Empower next-gen thinkers through personalized, project-based learning and expert mentorship.",
+    "coreValueProp": [
+      "Student-directed research",
+      "Tangible outcomes (Papers, Apps, Podcasts)",
+      "Near-peer mentorship (PhD students)"
+    ],
+    "structure": {
+      "duration": "3-6 months",
+      "sessions": 10,
+      "frequency": "One-on-one, 1 hour sessions",
+      "workload": "3-5 hours per week"
+    }
+  },
+  "milestones": [
+    { "session": 3, "deliverable": "Research Question Finalized" },
+    { "session": 4, "deliverable": "One-page Project Outline" },
+    { "session": 6, "deliverable": "Draft of 50% of Project" },
+    { "session": 9, "deliverable": "First Full Draft" },
+    { "session": 10, "deliverable": "Final Submission" }
+  ],
+  "products": [
+    {
+      "name": "Core Program",
+      "price": 4000,
+      "currency": "USD",
+      "features": ["10 Sessions", "2 rounds writing feedback", "Symposium access", "Rec Letter option"]
+    },
+    {
+      "name": "Launchpad",
+      "price": 700,
+      "details": "For undecided students. 3 sessions to brainstorm topics."
+    },
+    {
+      "name": "Showcasing Support",
+      "price": 1100,
+      "details": "Guidance for journals, competitions, or media.",
+      "tracks": ["Publishing", "Competing", "Multimedia", "Presenting"]
+    }
+  ],
+  "mentorNetwork": {
+    "universities": ["Harvard", "Columbia", "Yale", "MIT", "Stanford"],
+    "profileTypes": [
+      {
+        "id": "stem_bio",
+        "label": "The Bio-Innovator",
+        "description": "You see biology as a machine to be tuned. You need a mentor doing wet-lab or computational bio research.",
+        "sampleProject": "Predicting protein folding using neural networks."
+      },
+      {
+        "id": "cs_eng",
+        "label": "The Systems Architect",
+        "description": "You build solutions. You need a mentor with deep engineering or CS experience.",
+        "sampleProject": "Developing an autonomous drone algorithm for search and rescue."
+      },
+      {
+        "id": "humanities",
+        "label": "The Cultural Analyst",
+        "description": "You decode human behavior. You need a mentor in Sociology, History, or Literature.",
+        "sampleProject": "Analyzing the impact of social media algorithms on teen political polarization."
+      }
+    ]
+  }
+}
