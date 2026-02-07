@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# Ivy Edge Research Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive quiz microsite that guides prospective students through five questions to discover their **Research Archetype** — a personalized identity paired with a tailored project concept — then connects them to a strategy session via Calendly.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework**: React 19 + TypeScript
+- **Build**: Vite 7
+- **Styling**: Tailwind CSS v4
+- **Animations**: Motion (Framer Motion) + tsParticles
+- **Scheduling**: react-calendly
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# Install dependencies
+npm install
 
-## Expanding the ESLint configuration
+# Start dev server (http://localhost:5173)
+npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Type-check + production build
+npm run build
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Lint
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the project root:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+VITE_CALENDLY_URL=https://calendly.com/your-url
+```
+
+If not set, the app falls back to the URL defined in `src/data/content.ts`.
+
+## Project Structure
+
+```
+src/
+├── components/    # Reusable UI components (buttons, cards, animations)
+├── scenes/        # 8 full-screen quiz scenes
+├── data/
+│   ├── content.ts    # All user-facing text (single source of truth)
+│   └── archetypes.ts # Quiz answer → archetype mapping
+├── hooks/         # Custom hooks (quiz state, typewriter effect)
+├── lib/           # Archetype computation logic
+├── types/         # TypeScript type definitions
+└── index.css      # Tailwind theme + custom utilities
+```
+
+## Quiz Flow
+
+1. **Intro** — Landing page
+2. **The Tool** — Choose academic discipline (4 options)
+3. **The Scale** — Micro or macro focus (2 options)
+4. **The Outcome** — Preferred deliverable type (4 options)
+5. **The Crew** — Work style preference (2 options)
+6. **The Fuel** — Core motivation (2 options)
+7. **Synthesis** — Animated loading sequence
+8. **Result** — Personalized archetype, project concept, and Calendly CTA
+
+Questions 1 and 2 determine one of **8 archetypes**. Question 3 selects from **96 project concepts**. Questions 4 and 5 customize the description.
+
+## Editing Content
+
+All user-facing text is in `src/data/content.ts`. See [CONTENT_GUIDE.md](CONTENT_GUIDE.md) for detailed instructions on editing quiz questions, archetypes, project concepts, and more.
+
+## Deployment (Vercel)
+
+### First-time setup
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Link project (follow prompts to connect your Vercel account)
+vercel link
+
+# Set environment variables on Vercel
+vercel env add VITE_CALENDLY_URL
+```
+
+### Deploy
+
+```bash
+# Preview deployment (staging URL)
+vercel
+
+# Production deployment
+vercel --prod
+```
+
+### Git-based deploys
+
+Once the project is linked, pushing to `main` will automatically trigger a production deploy. Pull request branches get preview URLs.
+
+Vercel auto-detects Vite — no build configuration needed. The defaults work out of the box:
+- **Build command**: `npm run build`
+- **Output directory**: `dist`
+- **Framework preset**: Vite
