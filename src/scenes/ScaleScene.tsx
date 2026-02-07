@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { OptionCard } from '../components/OptionCard';
 import { ProgressIndicator } from '../components/ProgressIndicator';
+import { TypewriterText } from '../components/TypewriterText';
 import { siteContent } from '../data/content';
 import type { ScaleChoice } from '../types';
 
@@ -13,7 +14,7 @@ const question = siteContent.questions[1];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } },
 };
 
 export function ScaleScene({ onSelect }: ScaleSceneProps) {
@@ -25,7 +26,7 @@ export function ScaleScene({ onSelect }: ScaleSceneProps) {
   }
 
   return (
-    <div className="flex w-full max-w-2xl flex-col items-center gap-8">
+    <div className="flex w-full max-w-3xl flex-col items-center gap-10">
       <ProgressIndicator current={2} total={siteContent.questions.length} />
 
       <div className="text-center">
@@ -33,12 +34,12 @@ export function ScaleScene({ onSelect }: ScaleSceneProps) {
           Question 2 of {siteContent.questions.length}
         </p>
         <h2 className="font-heading text-3xl font-bold text-text-primary md:text-4xl">
-          {question.prompt}
+          <TypewriterText text={question.prompt} speed={30} cursor={false} />
         </h2>
       </div>
 
       <motion.div
-        className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2"
+        className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

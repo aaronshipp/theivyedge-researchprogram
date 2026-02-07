@@ -1,6 +1,7 @@
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import './App.css';
 import { useQuiz } from './hooks/useQuiz';
+import ivyEdgeLogo from './assets/ivy-edge-logo.jpg';
 import { SceneTransition } from './components/SceneTransition';
 import { ParticleBackground } from './components/ParticleBackground';
 import { IntroScene } from './scenes/IntroScene';
@@ -71,6 +72,17 @@ function App() {
           {renderScene()}
         </SceneTransition>
       </AnimatePresence>
+      {/* Subtle brand watermark during quiz scenes */}
+      {state.currentScene >= 2 && state.currentScene <= 7 && (
+        <motion.img
+          src={ivyEdgeLogo}
+          alt=""
+          className="fixed bottom-4 right-4 z-20 h-8 w-8 rounded-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.15 }}
+          transition={{ duration: 0.5 }}
+        />
+      )}
     </div>
   );
 }

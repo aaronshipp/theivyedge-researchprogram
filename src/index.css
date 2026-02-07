@@ -12,6 +12,8 @@
   --color-text-primary: #f0f0f5;
   --color-text-secondary: #a0a0b0;
   --color-text-muted: #606070;
+  --color-gold: #d4af37;
+  --color-gold-dim: rgba(212, 175, 55, 0.15);
 
   --font-heading: "Playfair Display", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -32,6 +34,17 @@
   .border-glow {
     border: 1px solid rgba(0, 255, 255, 0.3);
   }
+  .glow-ring {
+    box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2),
+      0 0 15px rgba(0, 255, 255, 0.1),
+      inset 0 0 15px rgba(0, 255, 255, 0.05);
+  }
+  .glow-gold {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 0 30px rgba(212, 175, 55, 0.15);
+  }
+  .text-glow-gold {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+  }
 }
 
 @keyframes neon-pulse {
@@ -51,6 +64,16 @@
   100% {
     transform: translateX(100%);
   }
+}
+
+@keyframes typewriter-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
 }
 
 html,

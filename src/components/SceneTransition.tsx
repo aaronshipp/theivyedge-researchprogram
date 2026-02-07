@@ -6,19 +6,28 @@ interface SceneTransitionProps {
   sceneKey: number;
 }
 
+const expoOut = [0.22, 1, 0.36, 1] as const;
+
 const sceneVariants = {
-  initial: { opacity: 0, y: 20, filter: 'blur(4px)' },
+  initial: {
+    opacity: 0,
+    scale: 0.97,
+    filter: 'blur(8px)',
+    clipPath: 'inset(5% 5% 5% 5%)',
+  },
   animate: {
     opacity: 1,
-    y: 0,
+    scale: 1,
     filter: 'blur(0px)',
-    transition: { duration: 0.5, ease: 'easeOut' as const },
+    clipPath: 'inset(0% 0% 0% 0%)',
+    transition: { duration: 0.6, ease: expoOut },
   },
   exit: {
     opacity: 0,
-    y: -20,
-    filter: 'blur(4px)',
-    transition: { duration: 0.3, ease: 'easeIn' as const },
+    scale: 1.03,
+    filter: 'blur(8px)',
+    clipPath: 'inset(5% 5% 5% 5%)',
+    transition: { duration: 0.35, ease: 'easeIn' as const },
   },
 };
 

@@ -1,3 +1,5 @@
+import { motion } from 'motion/react';
+
 interface ProgressIndicatorProps {
   current: number;
   total: number;
@@ -7,15 +9,20 @@ export function ProgressIndicator({ current, total }: ProgressIndicatorProps) {
   return (
     <div className="flex items-center gap-2">
       {Array.from({ length: total }, (_, i) => (
-        <div
+        <motion.div
           key={i}
-          className={`h-2 rounded-full transition-all ${
+          layout
+          className={`h-2 rounded-full ${
             i + 1 === current
-              ? 'w-6 bg-neon-cyan glow-cyan'
+              ? 'bg-neon-cyan glow-cyan'
               : i + 1 < current
-                ? 'w-2 bg-neon-cyan/50'
-                : 'w-2 bg-void-lighter'
+                ? 'bg-neon-cyan/50'
+                : 'bg-void-lighter'
           }`}
+          animate={{
+            width: i + 1 === current ? 24 : 8,
+          }}
+          transition={{ type: 'spring', stiffness: 300, damping: 25 }}
         />
       ))}
     </div>
