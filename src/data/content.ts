@@ -126,7 +126,7 @@ export const siteContent = {
     /** Text on the booking CTA button */
     ctaLabel: 'Book Strategy Session',
     /** Calendly URL — override with VITE_CALENDLY_URL env var for production */
-    calendlyFallbackUrl: 'https://calendly.com/theivyedge/90-minute-initial-consultation?embed_domain=www.ivy-edge.com&embed_type=Inline&primary_color=b08400',
+    calendlyFallbackUrl: 'https://calendly.com/theivyedge/20-minute-consultation',
   },
 
   // ── Archetypes ─────────────────────────────────────────────
