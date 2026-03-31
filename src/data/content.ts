@@ -30,8 +30,9 @@ export const siteContent = {
   intro: {
     /** Small label above the main heading */
     label: 'Ivy Edge Research Program',
-    /** Main heading — use plain text, "creators" will be italicized automatically */
-    heading: "Colleges don't just want grades. They want creators.",
+    /** Main heading — two lines rendered separately in IntroScene */
+    headingLine1: "Your Ivy Edge Research Program Journey",
+    headingLine2: "Begins Here",
     /** Description paragraph below the heading */
     subtext: 'The Ivy Edge Research Program pairs you with PhD mentors to build something real.',
     /** Text on the primary call-to-action button */

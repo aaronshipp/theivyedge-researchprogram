@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/Sansation-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/Sansation-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/Sansation-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
 @theme {
   --color-void: #0a0a0f;
   --color-void-light: #12121a;
@@ -18,6 +37,7 @@
   --font-heading: "Playfair Display", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "Space Mono", "Fira Code", monospace;
+  --font-sansation: "Sansation", sans-serif;
 }
 
 @layer utilities {
@@ -44,6 +64,9 @@
   }
   .text-glow-gold {
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  .text-glow-amber {
+    text-shadow: 0 0 8px #276cc0, 0 0 20px rgba(39, 108, 192, 0.7), 0 0 40px rgba(39, 108, 192, 0.4);
   }
 }
 

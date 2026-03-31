@@ -39,13 +39,18 @@ export function IntroScene({ onNext }: IntroSceneProps) {
       </motion.div>
 
       {/* Label — typewriter */}
-      <div className="h-5 font-mono text-xs uppercase tracking-[0.3em] text-neon-cyan">
+      <div className="h-5 font-mono text-xs uppercase tracking-[0.3em] text-[#af872d]">
         <TypewriterText text={intro.label} speed={35} delay={500} />
       </div>
 
-      {/* Heading — word-by-word reveal */}
-      <h1 className="font-heading text-5xl font-bold leading-tight text-text-primary text-glow-cyan md:text-6xl lg:text-7xl">
-        <RevealText text={intro.heading} by="word" staggerDelay={0.07} delay={1.2} />
+      {/* Heading — word-by-word reveal, two lines */}
+      <h1 className="font-sansation text-3xl font-bold leading-tight text-text-primary text-glow-amber md:text-4xl lg:text-5xl">
+        <span className="block whitespace-nowrap">
+          <RevealText text={intro.headingLine1} by="word" staggerDelay={0.07} delay={1.2} />
+        </span>
+        <span className="block">
+          <RevealText text={intro.headingLine2} by="word" staggerDelay={0.07} delay={1.2 + 0.07 * 7} />
+        </span>
       </h1>
 
       {/* Subtext */}
