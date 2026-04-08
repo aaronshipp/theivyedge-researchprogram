@@ -29,16 +29,16 @@ export const siteContent = {
 
   intro: {
     /** Small label above the main heading */
-    label: 'Ivy Edge Research Program',
+    label: 'Project: The Ivy Edge Research Program',
     /** Main heading — two lines rendered separately in IntroScene */
-    headingLine1: "Your Ivy Edge Research Program Journey",
-    headingLine2: "Begins Here",
+    headingLine1: "Your Ivy Edge Research Program",
+    headingLine2: "Journey Begins Here",
     /** Description paragraph below the heading */
-    subtext: 'The Ivy Edge Research Program pairs you with PhD mentors to build something real.',
+    subtext: 'Real research. Real mentors. Real results.',
     /** Text on the primary call-to-action button */
     cta: 'Initiate Sequence',
     /** Small footer text below the button */
-    footer: '< 60 seconds \u00B7 No wrong answers >',
+    footer: '60 seconds * No wrong answers * Choose your adventure',
   },
 
   // ── Quiz Questions (Scenes 2–6) ────────────────────────────
@@ -55,7 +55,7 @@ export const siteContent = {
     // Q1 — "The Tool" (Scene 2)
     {
       id: 'tool',
-      prompt: 'Choose your instrument of change.',
+      prompt: 'What\'s your instrument of change?',
       options: [
         { id: 'stem_bio' as ToolChoice, icon: '🔬', label: 'Microscope / DNA Helix', description: 'Biology, Chemistry, Life Sciences' },
         { id: 'cs_eng' as ToolChoice, icon: '💻', label: 'Code Terminal / Matrix', description: 'Computer Science, Engineering' },
@@ -75,7 +75,7 @@ export const siteContent = {
     // Q3 — "The Outcome" (Scene 4)
     {
       id: 'outcome',
-      prompt: 'What does "Finished" look like to you?',
+      prompt: 'What does "finished" look like to you?',
       options: [
         { id: 'paper' as OutcomeChoice, icon: '📜', label: 'A Published Paper', description: 'Academic research, peer review, citations.' },
         { id: 'prototype' as OutcomeChoice, icon: '🤖', label: 'A Working Prototype', description: 'Something you can touch, demo, or deploy.' },
@@ -86,7 +86,7 @@ export const siteContent = {
     // Q4 — "The Crew" (Scene 5)
     {
       id: 'crew',
-      prompt: "Who's on your mission?",
+      prompt: "Who's with you on your mission?",
       options: [
         { id: 'independent' as CrewChoice, icon: '🧑‍💻', label: 'Just Me & My Mentor', description: 'Deep focus. One mind. One question.' },
         { id: 'collaborative' as CrewChoice, icon: '👥', label: 'A Full Research Team', description: 'Collaboration. Multiple perspectives. Shared discovery.' },

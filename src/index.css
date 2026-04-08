@@ -34,7 +34,7 @@
   --color-gold: #d4af37;
   --color-gold-dim: rgba(212, 175, 55, 0.15);
 
-  --font-heading: "Playfair Display", Georgia, serif;
+  --font-heading: "Sansation", sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "Space Mono", "Fira Code", monospace;
   --font-sansation: "Sansation", sans-serif;
@@ -104,5 +104,5 @@ body,
 #root {
   min-height: 100vh;
   margin: 0;
-  background-color: #0a0a0f;
+  background-color: #000000;
 }
