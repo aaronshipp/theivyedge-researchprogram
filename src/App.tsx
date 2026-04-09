@@ -12,9 +12,10 @@ import { CrewScene } from './scenes/CrewScene';
 import { FuelScene } from './scenes/FuelScene';
 import { SynthesisScene } from './scenes/SynthesisScene';
 import { ResultScene } from './scenes/ResultScene';
+import { ExportScene } from './scenes/ExportScene';
 import type { ToolChoice, ScaleChoice, OutcomeChoice, CrewChoice, FuelChoice } from './types';
 
-function App() {
+function QuizApp() {
   const [state, dispatch] = useQuiz();
 
   function renderScene() {
@@ -65,7 +66,7 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-void font-body">
+    <div className="relative min-h-screen overflow-hidden bg-black font-body">
       <ParticleBackground />
       <AnimatePresence mode="wait">
         <SceneTransition key={state.currentScene} sceneKey={state.currentScene}>
@@ -85,6 +86,14 @@ function App() {
       )}
     </div>
   );
+}
+
+function App() {
+  const exportId = new URLSearchParams(window.location.search).get('export');
+  if (exportId) {
+    return <ExportScene archetypeId={exportId as Parameters<typeof ExportScene>[0]['archetypeId']} />;
+  }
+  return <QuizApp />;
 }
 
 export default App;
