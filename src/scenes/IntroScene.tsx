@@ -83,20 +83,23 @@ export function IntroScene({ onNext }: IntroSceneProps) {
       </motion.p>
 
       {/* Home page link button */}
-      <motion.a
-        href="https://www.ivyedgeresearchprogram.com/home"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="cursor-pointer rounded-lg border border-neon-cyan bg-neon-cyan/10 px-10 py-4 font-mono text-base font-bold uppercase tracking-widest text-neon-cyan transition-colors hover:bg-neon-cyan/20"
-        style={{ animation: 'neon-pulse 2s ease-in-out infinite' }}
+      <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 3.2 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.97 }}
       >
-        Go to Home Page
-      </motion.a>
+        <motion.a
+          href="https://www.ivyedgeresearchprogram.com/home"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block cursor-pointer rounded-lg border border-neon-cyan bg-neon-cyan/10 px-10 py-4 font-mono text-base font-bold uppercase tracking-widest text-neon-cyan transition-colors hover:bg-neon-cyan/20"
+          style={{ animation: 'neon-pulse 2s ease-in-out infinite' }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          Go to Home Page
+        </motion.a>
+      </motion.div>
     </div>
   );
 }
