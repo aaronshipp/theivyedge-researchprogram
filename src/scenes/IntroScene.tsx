@@ -97,7 +97,7 @@ export function IntroScene({ onNext }: IntroSceneProps) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
         >
-          Go to Home Page
+          Skip to Home Page
         </motion.a>
       </motion.div>
     </div>
