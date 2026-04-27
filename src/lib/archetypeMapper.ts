@@ -24,5 +24,6 @@ export function computeArchetype(answers: CompletedAnswers): ArchetypeResult {
     gapHook,
     mentorField: archetype.fields.join(', '),
     universities: siteContent.mentorNetwork.universities,
+    fields: archetype.fields,
   };
 }

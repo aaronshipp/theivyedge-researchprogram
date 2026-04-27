@@ -22,6 +22,7 @@ export interface ArchetypeResult {
   gapHook: string;
   mentorField: string;
   universities: string[];
+  fields: string[];
 }
 
 export interface QuizState {

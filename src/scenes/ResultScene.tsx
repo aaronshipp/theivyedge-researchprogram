@@ -144,9 +144,24 @@ export function ResultScene({ archetype }: ResultSceneProps) {
                 {uni}
               </motion.span>
             ))}
-            <span className="ml-2 text-sm text-text-muted">
-              {archetype.mentorField}
-            </span>
+            <div className="mt-2 flex w-full flex-wrap gap-x-1">
+              {archetype.fields.map((field, i) => (
+                <motion.span
+                  key={field}
+                  className="text-sm text-text-muted"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 300,
+                    damping: 20,
+                    delay: 2.2 + archetype.universities.length * 0.08 + i * 0.08,
+                  }}
+                >
+                  {field}{i < archetype.fields.length - 1 ? ', ' : ''}
+                </motion.span>
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>

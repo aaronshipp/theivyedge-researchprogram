@@ -142,56 +142,56 @@ export const siteContent = {
       baseDescription:
         'You see biology as a machine to be tuned. Your instinct is to zoom in — to the cellular level, the molecular mechanism, the invisible process that governs everything above it.',
       mentorProfile: 'stem_bio',
-      fields: ['Molecular Biology', 'Biochemistry', 'Genetics'],
+      fields: ['Molecular Biology', 'Biochemistry', 'Genetics', 'Neuroscience', 'Biophysics'],
     },
     bio_systems_macro: {
       name: 'The Ecological Investigator',
       baseDescription:
         'You think in ecosystems, not test tubes. Where others see a single organism, you see interconnected systems, environmental pressures, and emergent behaviors at scale.',
       mentorProfile: 'stem_bio',
-      fields: ['Ecology', 'Public Health', 'Epidemiology'],
+      fields: ['Ecology', 'Public Health', 'Epidemiology', 'Environmental Science', 'Biostatistics'],
     },
     systems_architect_micro: {
       name: 'The Systems Architect',
       baseDescription:
         'You build from first principles. Algorithms, architectures, elegant solutions to hard problems — you are drawn to the logic beneath the interface.',
       mentorProfile: 'cs_eng',
-      fields: ['Computer Science', 'Electrical Engineering', 'Robotics'],
+      fields: ['Computer Science', 'Electrical Engineering', 'Robotics', 'Applied Mathematics', 'Cybersecurity'],
     },
     platform_builder_macro: {
       name: 'The Platform Builder',
       baseDescription:
         "You don't just write code — you design systems that serve millions. Platforms, networks, infrastructure that scales. You think about the user, the community, the world.",
       mentorProfile: 'cs_eng',
-      fields: ['Software Engineering', 'Data Science', 'Systems Design'],
+      fields: ['Software Engineering', 'Data Science', 'UX Design', 'Product Design', 'Information Science'],
     },
     cultural_analyst_micro: {
       name: 'The Cultural Analyst',
       baseDescription:
         'You decode texts, cases, and arguments at the sentence level. Precision of language is your instrument. You find truth in the footnotes.',
       mentorProfile: 'humanities',
-      fields: ['Philosophy', 'Literature', 'Legal Studies'],
+      fields: ['Philosophy', 'Literature', 'Legal Studies', 'Linguistics', 'History'],
     },
     justice_engineer_macro: {
       name: 'The Justice Engineer',
       baseDescription:
         'You see the structures that others accept as given — and you want to redesign them. Policy, power, equity: these are your raw materials.',
       mentorProfile: 'humanities',
-      fields: ['Political Science', 'Sociology', 'Public Policy'],
+      fields: ['Political Science', 'Sociology', 'Public Policy', 'Urban Planning', 'Economics'],
     },
     narrative_scientist_micro: {
       name: 'The Narrative Scientist',
       baseDescription:
         'You blend art and analysis. Every frame, every edit, every word choice is a data point in a story designed to shift perception.',
       mentorProfile: 'humanities',
-      fields: ['Film Studies', 'Journalism', 'Digital Media'],
+      fields: ['Film Studies', 'Journalism', 'Digital Media', 'Creative Writing', 'Cognitive Science'],
     },
     impact_producer_macro: {
       name: 'The Impact Producer',
       baseDescription:
         'You create media that moves systems. Documentaries that change policy. Campaigns that shift culture. Your canvas is the public conversation.',
       mentorProfile: 'humanities',
-      fields: ['Communications', 'Media Studies', 'Social Entrepreneurship'],
+      fields: ['Communications', 'Media Studies', 'Social Entrepreneurship', 'Anthropology', 'Global Studies'],
     },
   } as Record<string, ArchetypeDefinition>,
 
