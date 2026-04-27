@@ -19,6 +19,7 @@ export interface ArchetypeDefinition {
   baseDescription: string;
   mentorProfile: string;
   fields: string[];
+  universities?: string[];
 }
 
 // ─── Site Content ───────────────────────────────────────────
@@ -143,6 +144,7 @@ export const siteContent = {
         'You see biology as a machine to be tuned. Your instinct is to zoom in — to the cellular level, the molecular mechanism, the invisible process that governs everything above it.',
       mentorProfile: 'stem_bio',
       fields: ['Molecular Biology', 'Biochemistry', 'Genetics', 'Neuroscience', 'Biophysics'],
+      universities: ['Stanford', 'Johns Hopkins', 'Harvey Mudd', 'UVA', 'Case Western', 'Northeastern', 'Florida A&M', 'Rutgers'],
     },
     bio_systems_macro: {
       name: 'The Ecological Investigator',
@@ -150,6 +152,7 @@ export const siteContent = {
         'You think in ecosystems, not test tubes. Where others see a single organism, you see interconnected systems, environmental pressures, and emergent behaviors at scale.',
       mentorProfile: 'stem_bio',
       fields: ['Ecology', 'Public Health', 'Epidemiology', 'Environmental Science', 'Biostatistics'],
+      universities: ['Yale', 'Cornell', 'UCLA', 'Tufts', 'University of Florida', 'Purdue', 'North Carolina A&T', 'University of Miami'],
     },
     systems_architect_micro: {
       name: 'The Systems Architect',
@@ -157,6 +160,7 @@ export const siteContent = {
         'You build from first principles. Algorithms, architectures, elegant solutions to hard problems — you are drawn to the logic beneath the interface.',
       mentorProfile: 'cs_eng',
       fields: ['Computer Science', 'Electrical Engineering', 'Robotics', 'Applied Mathematics', 'Cybersecurity'],
+      universities: ['MIT', 'CalTech', 'Rice', 'UMichigan', 'Georgia Tech', 'UT-Austin', 'RPI', 'Michigan State'],
     },
     platform_builder_macro: {
       name: 'The Platform Builder',
@@ -164,6 +168,7 @@ export const siteContent = {
         "You don't just write code — you design systems that serve millions. Platforms, networks, infrastructure that scales. You think about the user, the community, the world.",
       mentorProfile: 'cs_eng',
       fields: ['Software Engineering', 'Data Science', 'UX Design', 'Product Design', 'Information Science'],
+      universities: ['UChicago', 'Dartmouth', 'Georgetown', 'Boston College', 'UW-Madison', 'Ohio State', 'UConn', 'University of Denver'],
     },
     cultural_analyst_micro: {
       name: 'The Cultural Analyst',
@@ -171,6 +176,7 @@ export const siteContent = {
         'You decode texts, cases, and arguments at the sentence level. Precision of language is your instrument. You find truth in the footnotes.',
       mentorProfile: 'humanities',
       fields: ['Philosophy', 'Literature', 'Legal Studies', 'Linguistics', 'History'],
+      universities: ['Columbia', 'Brown', 'UC-Berkeley', 'NYU', 'USC', 'Fordham', 'Spelman', 'Pepperdine'],
     },
     justice_engineer_macro: {
       name: 'The Justice Engineer',
@@ -178,6 +184,7 @@ export const siteContent = {
         'You see the structures that others accept as given — and you want to redesign them. Policy, power, equity: these are your raw materials.',
       mentorProfile: 'humanities',
       fields: ['Political Science', 'Sociology', 'Public Policy', 'Urban Planning', 'Economics'],
+      universities: ['UPenn', 'Northwestern', 'Carnegie Mellon', 'Wake Forest', 'Howard', 'Lehigh', 'UIUC', 'UMaryland-College Park'],
     },
     narrative_scientist_micro: {
       name: 'The Narrative Scientist',
@@ -185,6 +192,7 @@ export const siteContent = {
         'You blend art and analysis. Every frame, every edit, every word choice is a data point in a story designed to shift perception.',
       mentorProfile: 'humanities',
       fields: ['Film Studies', 'Journalism', 'Digital Media', 'Creative Writing', 'Cognitive Science'],
+      universities: ['Princeton', 'Vanderbilt', 'Claremont McKenna', 'Tulane', 'Boston University', 'Villanova', 'University of Washington', 'Santa Clara State'],
     },
     impact_producer_macro: {
       name: 'The Impact Producer',
@@ -192,6 +200,7 @@ export const siteContent = {
         'You create media that moves systems. Documentaries that change policy. Campaigns that shift culture. Your canvas is the public conversation.',
       mentorProfile: 'humanities',
       fields: ['Communications', 'Media Studies', 'Social Entrepreneurship', 'Anthropology', 'Global Studies'],
+      universities: ['Harvard', 'Duke', 'Emory', 'UNC-Chapel Hill', 'Notre Dame', 'Penn State', 'Morehouse', 'Syracuse'],
     },
   } as Record<string, ArchetypeDefinition>,
 

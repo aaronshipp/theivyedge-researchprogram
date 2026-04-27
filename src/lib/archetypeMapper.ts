@@ -13,7 +13,8 @@ export function computeArchetype(answers: CompletedAnswers): ArchetypeResult {
   const gapHookPrefix = siteContent.modifiers.gapHooks[modifierKey];
 
   const description = `${archetype.baseDescription} ${modifierDesc}`;
-  const topUniversities = siteContent.mentorNetwork.universities.slice(0, 3).join(', ');
+  const universityList = archetype.universities ?? siteContent.mentorNetwork.universities;
+  const topUniversities = universityList.slice(0, 3).join(', ');
   const gapHook = `${gapHookPrefix} ${archetype.fields.join(' & ')} at ${topUniversities}.`;
 
   return {
@@ -23,7 +24,7 @@ export function computeArchetype(answers: CompletedAnswers): ArchetypeResult {
     projectConcept,
     gapHook,
     mentorField: archetype.fields.join(', '),
-    universities: siteContent.mentorNetwork.universities,
+    universities: universityList,
     fields: archetype.fields,
   };
 }

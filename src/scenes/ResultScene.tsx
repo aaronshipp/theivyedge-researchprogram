@@ -145,10 +145,23 @@ export function ResultScene({ archetype }: ResultSceneProps) {
               </motion.span>
             ))}
             <div className="mt-2 flex w-full flex-wrap gap-x-1">
+              <motion.span
+                className="w-full text-sm text-text-secondary"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 300,
+                  damping: 20,
+                  delay: 2.2 + archetype.universities.length * 0.08,
+                }}
+              >
+                Majors for {archetype.name}:
+              </motion.span>
               {archetype.fields.map((field, i) => (
                 <motion.span
                   key={field}
-                  className="text-sm text-text-muted"
+                  className="text-sm text-text-secondary"
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{
