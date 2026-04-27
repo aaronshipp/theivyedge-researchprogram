@@ -189,7 +189,7 @@ export function ResultScene({ archetype, mode }: ResultSceneProps) {
           href="https://www.ivyedgeresearchprogram.com/home"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block cursor-pointer rounded-lg border border-neon-cyan bg-neon-cyan/10 px-10 py-4 font-mono text-base font-bold uppercase tracking-widest text-neon-cyan transition-colors hover:bg-neon-cyan/20"
+          className="inline-block cursor-pointer rounded-lg border border-neon-cyan bg-neon-cyan/10 px-5 py-2 font-mono text-sm font-bold uppercase tracking-widest text-neon-cyan transition-colors hover:bg-neon-cyan/20"
           style={{ animation: 'neon-pulse 2s ease-in-out infinite' }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}

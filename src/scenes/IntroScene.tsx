@@ -77,7 +77,7 @@ export function IntroScene({ onNext }: IntroSceneProps) {
 
       {/* Footer */}
       <motion.p
-        className="font-mono text-xs text-text-secondary"
+        className="font-mono text-sm sm:text-base text-text-secondary"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 3.0, duration: 0.5 }}
@@ -95,7 +95,7 @@ export function IntroScene({ onNext }: IntroSceneProps) {
           href="https://www.ivyedgeresearchprogram.com/home"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block cursor-pointer rounded-lg border border-neon-cyan bg-neon-cyan/10 px-10 py-4 font-mono text-base font-bold uppercase tracking-widest text-neon-cyan transition-colors hover:bg-neon-cyan/20"
+          className="inline-block cursor-pointer rounded-lg border border-neon-cyan bg-neon-cyan/10 px-5 py-2 font-mono text-sm font-bold uppercase tracking-widest text-neon-cyan transition-colors hover:bg-neon-cyan/20"
           style={{ animation: 'neon-pulse 2s ease-in-out infinite' }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
