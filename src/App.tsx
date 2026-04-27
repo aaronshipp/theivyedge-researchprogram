@@ -13,6 +13,7 @@ import { FuelScene } from './scenes/FuelScene';
 import { SynthesisScene } from './scenes/SynthesisScene';
 import { ResultScene } from './scenes/ResultScene';
 import { ExportScene } from './scenes/ExportScene';
+import { computeArchetype } from './lib/archetypeMapper';
 import type { ToolChoice, ScaleChoice, OutcomeChoice, CrewChoice, FuelChoice } from './types';
 
 function QuizApp() {
@@ -89,10 +90,32 @@ function QuizApp() {
 }
 
 function App() {
-  const exportId = new URLSearchParams(window.location.search).get('export');
+  const params = new URLSearchParams(window.location.search);
+
+  const exportId = params.get('export');
   if (exportId) {
     return <ExportScene archetypeId={exportId as Parameters<typeof ExportScene>[0]['archetypeId']} />;
   }
+
+  const previewId = params.get('preview');
+  if (previewId) {
+    const archetypeAnswers: Record<string, { tool: ToolChoice; scale: ScaleChoice }> = {
+      bio_innovator_micro:       { tool: 'stem_bio',       scale: 'micro' },
+      bio_systems_macro:         { tool: 'stem_bio',       scale: 'macro' },
+      systems_architect_micro:   { tool: 'cs_eng',         scale: 'micro' },
+      platform_builder_macro:    { tool: 'cs_eng',         scale: 'macro' },
+      cultural_analyst_micro:    { tool: 'humanities',     scale: 'micro' },
+      justice_engineer_macro:    { tool: 'humanities',     scale: 'macro' },
+      narrative_scientist_micro: { tool: 'creative_media', scale: 'micro' },
+      impact_producer_macro:     { tool: 'creative_media', scale: 'macro' },
+    };
+    const base = archetypeAnswers[previewId];
+    if (base) {
+      const archetype = computeArchetype({ ...base, outcome: 'paper', crew: 'independent', fuel: 'curiosity' });
+      return <ResultScene archetype={archetype} />;
+    }
+  }
+
   return <QuizApp />;
 }
 

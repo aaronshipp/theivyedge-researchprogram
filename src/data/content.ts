@@ -145,7 +145,7 @@ export const siteContent = {
       fields: ['Molecular Biology', 'Biochemistry', 'Genetics'],
     },
     bio_systems_macro: {
-      name: 'The Ecological Architect',
+      name: 'The Ecological Investigator',
       baseDescription:
         'You think in ecosystems, not test tubes. Where others see a single organism, you see interconnected systems, environmental pressures, and emergent behaviors at scale.',
       mentorProfile: 'stem_bio',
