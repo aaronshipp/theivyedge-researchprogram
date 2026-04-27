@@ -127,7 +127,7 @@ export const siteContent = {
     /** Label above the project concept box */
     projectConceptLabel: 'Generated Project Concept',
     /** Text on the booking CTA button */
-    ctaLabel: 'Book Discovery Session',
+    ctaLabel: 'Book Information Session',
     /** Calendly URL — override with VITE_CALENDLY_URL env var for production */
     calendlyFallbackUrl: 'https://calendly.com/theivyedge/20-minute-consultation',
   },
@@ -504,7 +504,7 @@ export const siteContent = {
     preTitle: 'Analysis Complete',
     titlePrefix: 'Your child is',
     projectConceptLabel: 'Generated Project Concept',
-    ctaLabel: 'Book Discovery Session',
+    ctaLabel: 'Book Information Session',
   },
 
   modifiersParent: {
