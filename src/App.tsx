@@ -117,7 +117,7 @@ function App() {
     const base = archetypeAnswers[previewId];
     if (base) {
       const archetype = computeArchetype({ ...base, outcome: 'paper', crew: 'independent', fuel: 'curiosity' });
-      return <ResultScene archetype={archetype} />;
+      return <ResultScene archetype={archetype} mode="student" />;
     }
   }
 
