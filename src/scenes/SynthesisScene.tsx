@@ -2,16 +2,17 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { TypewriterText } from '../components/TypewriterText';
 import { siteContent } from '../data/content';
+import type { QuizMode } from '../types';
 
 interface SynthesisSceneProps {
   onComplete: () => void;
+  mode: QuizMode;
 }
-
-const { scanLines } = siteContent.synthesis;
 const LINE_DURATION = 1200; // ms per line (typewriter needs more time)
 const SEGMENTS = 12; // progress bar segments
 
-export function SynthesisScene({ onComplete }: SynthesisSceneProps) {
+export function SynthesisScene({ onComplete, mode }: SynthesisSceneProps) {
+  const { scanLines } = mode === 'parent' ? siteContent.synthesisParent : siteContent.synthesis;
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {

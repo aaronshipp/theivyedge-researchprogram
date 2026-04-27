@@ -17,6 +17,7 @@ import type { ToolChoice, ScaleChoice, OutcomeChoice, CrewChoice, FuelChoice } f
 export interface ArchetypeDefinition {
   name: string;
   baseDescription: string;
+  baseDescriptionParent?: string;
   mentorProfile: string;
   fields: string[];
   universities?: string[];
@@ -142,6 +143,8 @@ export const siteContent = {
       name: 'The Bio-Innovator',
       baseDescription:
         'You see biology as a machine to be tuned. Your instinct is to zoom in — to the cellular level, the molecular mechanism, the invisible process that governs everything above it.',
+      baseDescriptionParent:
+        'They see biology as a machine to be tuned. Their instinct is to zoom in — to the cellular level, the molecular mechanism, the invisible process that governs everything above it.',
       mentorProfile: 'stem_bio',
       fields: ['Molecular Biology', 'Biochemistry', 'Genetics', 'Neuroscience', 'Biophysics'],
       universities: ['Stanford', 'Johns Hopkins', 'Harvey Mudd', 'UVA', 'Case Western', 'Northeastern', 'Florida A&M', 'Rutgers'],
@@ -150,6 +153,8 @@ export const siteContent = {
       name: 'The Ecological Investigator',
       baseDescription:
         'You think in ecosystems, not test tubes. Where others see a single organism, you see interconnected systems, environmental pressures, and emergent behaviors at scale.',
+      baseDescriptionParent:
+        'They think in ecosystems, not test tubes. Where others see a single organism, they see interconnected systems, environmental pressures, and emergent behaviors at scale.',
       mentorProfile: 'stem_bio',
       fields: ['Ecology', 'Public Health', 'Epidemiology', 'Environmental Science', 'Biostatistics'],
       universities: ['Yale', 'Cornell', 'UCLA', 'Tufts', 'University of Florida', 'Purdue', 'North Carolina A&T', 'University of Miami'],
@@ -158,6 +163,8 @@ export const siteContent = {
       name: 'The Systems Architect',
       baseDescription:
         'You build from first principles. Algorithms, architectures, elegant solutions to hard problems — you are drawn to the logic beneath the interface.',
+      baseDescriptionParent:
+        'They build from first principles. Algorithms, architectures, elegant solutions to hard problems — they are drawn to the logic beneath the interface.',
       mentorProfile: 'cs_eng',
       fields: ['Computer Science', 'Electrical Engineering', 'Robotics', 'Applied Mathematics', 'Cybersecurity'],
       universities: ['MIT', 'CalTech', 'Rice', 'UMichigan', 'Georgia Tech', 'UT-Austin', 'RPI', 'Michigan State'],
@@ -166,6 +173,8 @@ export const siteContent = {
       name: 'The Platform Builder',
       baseDescription:
         "You don't just write code — you design systems that serve millions. Platforms, networks, infrastructure that scales. You think about the user, the community, the world.",
+      baseDescriptionParent:
+        "They don't just write code — they design systems that serve millions. Platforms, networks, infrastructure that scales. They think about the user, the community, the world.",
       mentorProfile: 'cs_eng',
       fields: ['Software Engineering', 'Data Science', 'UX Design', 'Product Design', 'Information Science'],
       universities: ['UChicago', 'Dartmouth', 'Georgetown', 'Boston College', 'UW-Madison', 'Ohio State', 'UConn', 'University of Denver'],
@@ -174,6 +183,8 @@ export const siteContent = {
       name: 'The Cultural Analyst',
       baseDescription:
         'You decode texts, cases, and arguments at the sentence level. Precision of language is your instrument. You find truth in the footnotes.',
+      baseDescriptionParent:
+        'They decode texts, cases, and arguments at the sentence level. Precision of language is their instrument. They find truth in the footnotes.',
       mentorProfile: 'humanities',
       fields: ['Philosophy', 'Literature', 'Legal Studies', 'Linguistics', 'History'],
       universities: ['Columbia', 'Brown', 'UC-Berkeley', 'NYU', 'USC', 'Fordham', 'Spelman', 'Pepperdine'],
@@ -182,6 +193,8 @@ export const siteContent = {
       name: 'The Justice Engineer',
       baseDescription:
         'You see the structures that others accept as given — and you want to redesign them. Policy, power, equity: these are your raw materials.',
+      baseDescriptionParent:
+        'They see the structures that others accept as given — and they want to redesign them. Policy, power, equity: these are their raw materials.',
       mentorProfile: 'humanities',
       fields: ['Political Science', 'Sociology', 'Public Policy', 'Urban Planning', 'Economics'],
       universities: ['UPenn', 'Northwestern', 'Carnegie Mellon', 'Wake Forest', 'Howard', 'Lehigh', 'UIUC', 'UMaryland-College Park'],
@@ -190,6 +203,8 @@ export const siteContent = {
       name: 'The Narrative Scientist',
       baseDescription:
         'You blend art and analysis. Every frame, every edit, every word choice is a data point in a story designed to shift perception.',
+      baseDescriptionParent:
+        'They blend art and analysis. Every frame, every edit, every word choice is a data point in a story designed to shift perception.',
       mentorProfile: 'humanities',
       fields: ['Film Studies', 'Journalism', 'Digital Media', 'Creative Writing', 'Cognitive Science'],
       universities: ['Princeton', 'Vanderbilt', 'Claremont McKenna', 'Tulane', 'Boston University', 'Villanova', 'University of Washington', 'Santa Clara State'],
@@ -198,6 +213,8 @@ export const siteContent = {
       name: 'The Impact Producer',
       baseDescription:
         'You create media that moves systems. Documentaries that change policy. Campaigns that shift culture. Your canvas is the public conversation.',
+      baseDescriptionParent:
+        'They create media that moves systems. Documentaries that change policy. Campaigns that shift culture. Their canvas is the public conversation.',
       mentorProfile: 'humanities',
       fields: ['Communications', 'Media Studies', 'Social Entrepreneurship', 'Anthropology', 'Global Studies'],
       universities: ['Harvard', 'Duke', 'Emory', 'UNC-Chapel Hill', 'Notre Dame', 'Penn State', 'Morehouse', 'Syracuse'],
@@ -414,6 +431,103 @@ export const siteContent = {
         'To build the right team, you need a mentor embedded in the research networks of',
       collaborative_impact:
         'To scale your impact, you need a mentor who knows how to mobilize resources in',
+    } as Record<`${CrewChoice}_${FuelChoice}`, string>,
+  },
+
+  // ── Parent Mode Content ────────────────────────────────────
+  //
+  // Parallel content blocks for the parent quiz path.
+  // Same quiz structure, rewritten in parent voice (they/them).
+
+  questionsParent: [
+    // Q1 — parent voice
+    {
+      id: 'tool',
+      prompt: "What's your child's instrument of change?",
+      options: [
+        { id: 'stem_bio' as ToolChoice, icon: '🔬', label: 'Microscope / DNA Helix', description: 'Biology, Chemistry, Life Sciences' },
+        { id: 'cs_eng' as ToolChoice, icon: '💻', label: 'Code Terminal / Matrix', description: 'Computer Science, Engineering' },
+        { id: 'humanities' as ToolChoice, icon: '⚖️', label: 'Gavel / Vintage Pen', description: 'Humanities, Law, Policy' },
+        { id: 'creative_media' as ToolChoice, icon: '🎬', label: 'Video Camera / VR Headset', description: 'Creative Arts, Media, Design' },
+      ],
+    },
+    // Q2 — parent voice
+    {
+      id: 'scale',
+      prompt: 'How does your child solve problems?',
+      options: [
+        { id: 'micro' as ScaleChoice, icon: '⚛️', label: 'Micro — The Cell / The Atom', description: 'They look at the building blocks.' },
+        { id: 'macro' as ScaleChoice, icon: '🌍', label: 'Macro — The City / The Globe', description: 'They look at the big picture.' },
+      ],
+    },
+    // Q3 — parent voice
+    {
+      id: 'outcome',
+      prompt: "What does 'finished' look like to your student?",
+      options: [
+        { id: 'paper' as OutcomeChoice, icon: '📜', label: 'A Published Paper', description: 'Academic research, peer review, citations.' },
+        { id: 'prototype' as OutcomeChoice, icon: '🤖', label: 'A Working Prototype', description: 'Something they can touch, demo, or deploy.' },
+        { id: 'media' as OutcomeChoice, icon: '🎙️', label: 'A Launch Event / Podcast', description: 'Media, storytelling, public engagement.' },
+        { id: 'policy' as OutcomeChoice, icon: '🏛️', label: 'A Policy Change', description: 'Legislation, frameworks, systemic reform.' },
+      ],
+    },
+    // Q4 — parent voice
+    {
+      id: 'crew',
+      prompt: "Who's with your student on their mission?",
+      options: [
+        { id: 'independent' as CrewChoice, icon: '🧑‍💻', label: 'Just My Student & Their Mentor', description: 'Deep focus. One mind. One question.' },
+        { id: 'collaborative' as CrewChoice, icon: '👥', label: 'A Full Research Team', description: 'Collaboration. Multiple perspectives. Shared discovery.' },
+      ],
+    },
+    // Q5 — parent voice
+    {
+      id: 'fuel',
+      prompt: 'What drives your child?',
+      options: [
+        { id: 'curiosity' as FuelChoice, icon: '🔭', label: 'Pure Curiosity — The Unknown', description: 'They want to know what no one else knows.' },
+        { id: 'impact' as FuelChoice, icon: '⚡', label: 'Real-World Impact — The Change', description: 'They want to build something that matters.' },
+      ],
+    },
+  ],
+
+  synthesisParent: {
+    scanLines: [
+      'Scanning Ivy Edge Mentor Network...',
+      'Accessing Harvard / Columbia / MIT nodes...',
+      'Cross-referencing Research Vectors...',
+      "Synthesizing Your Student's Archetype...",
+    ],
+  },
+
+  resultParent: {
+    preTitle: 'Analysis Complete',
+    titlePrefix: 'Your child is',
+    projectConceptLabel: 'Generated Project Concept',
+    ctaLabel: 'Book Discovery Session',
+  },
+
+  modifiersParent: {
+    descriptions: {
+      independent_curiosity:
+        'They thrive in deep, solo exploration — driven by the thrill of uncovering what no one else has found.',
+      independent_impact:
+        'They work best with laser focus — one researcher, one mission, one outcome that changes the game.',
+      collaborative_curiosity:
+        'They believe the best discoveries happen at the intersection of minds — their curiosity multiplies in conversation.',
+      collaborative_impact:
+        'They build coalitions. Their research is not just rigorous — it is designed to move people and reshape systems.',
+    } as Record<`${CrewChoice}_${FuelChoice}`, string>,
+
+    gapHooks: {
+      independent_curiosity:
+        'To go deeper, your child needs a mentor who has navigated the frontiers of',
+      independent_impact:
+        'To turn their vision into reality, your child needs a mentor with hands-on experience in',
+      collaborative_curiosity:
+        'To build the right team, your child needs a mentor embedded in the research networks of',
+      collaborative_impact:
+        'To scale their impact, your child needs a mentor who knows how to mobilize resources in',
     } as Record<`${CrewChoice}_${FuelChoice}`, string>,
   },
 

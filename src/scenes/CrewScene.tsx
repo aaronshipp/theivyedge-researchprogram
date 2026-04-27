@@ -4,21 +4,21 @@ import { OptionCard } from '../components/OptionCard';
 import { ProgressIndicator } from '../components/ProgressIndicator';
 import { TypewriterText } from '../components/TypewriterText';
 import { siteContent } from '../data/content';
-import type { CrewChoice } from '../types';
+import type { CrewChoice, QuizMode } from '../types';
 
 interface CrewSceneProps {
   onSelect: (crew: CrewChoice) => void;
+  mode: QuizMode;
 }
-
-const question = siteContent.questions[3];
 
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } },
 };
 
-export function CrewScene({ onSelect }: CrewSceneProps) {
+export function CrewScene({ onSelect, mode }: CrewSceneProps) {
   const [selected, setSelected] = useState<string | null>(null);
+  const question = mode === 'parent' ? siteContent.questionsParent[3] : siteContent.questions[3];
 
   function handleSelect(id: string) {
     setSelected(id);

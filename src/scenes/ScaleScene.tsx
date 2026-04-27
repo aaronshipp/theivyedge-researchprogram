@@ -4,21 +4,21 @@ import { OptionCard } from '../components/OptionCard';
 import { ProgressIndicator } from '../components/ProgressIndicator';
 import { TypewriterText } from '../components/TypewriterText';
 import { siteContent } from '../data/content';
-import type { ScaleChoice } from '../types';
+import type { ScaleChoice, QuizMode } from '../types';
 
 interface ScaleSceneProps {
   onSelect: (scale: ScaleChoice) => void;
+  mode: QuizMode;
 }
-
-const question = siteContent.questions[1];
 
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } },
 };
 
-export function ScaleScene({ onSelect }: ScaleSceneProps) {
+export function ScaleScene({ onSelect, mode }: ScaleSceneProps) {
   const [selected, setSelected] = useState<string | null>(null);
+  const question = mode === 'parent' ? siteContent.questionsParent[1] : siteContent.questions[1];
 
   function handleSelect(id: string) {
     setSelected(id);

@@ -1,3 +1,5 @@
+export type QuizMode = 'student' | 'parent';
+
 export type ToolChoice = 'stem_bio' | 'cs_eng' | 'humanities' | 'creative_media';
 export type ScaleChoice = 'micro' | 'macro';
 export type OutcomeChoice = 'paper' | 'prototype' | 'media' | 'policy';
@@ -29,10 +31,11 @@ export interface QuizState {
   currentScene: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
   answers: QuizAnswers;
   archetype: ArchetypeResult | null;
+  mode: QuizMode;
 }
 
 export type QuizAction =
-  | { type: 'START' }
+  | { type: 'START'; payload: QuizMode }
   | { type: 'ANSWER_TOOL'; payload: ToolChoice }
   | { type: 'ANSWER_SCALE'; payload: ScaleChoice }
   | { type: 'ANSWER_OUTCOME'; payload: OutcomeChoice }

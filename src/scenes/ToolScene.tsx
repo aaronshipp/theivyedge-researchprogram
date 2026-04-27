@@ -4,21 +4,21 @@ import { OptionCard } from '../components/OptionCard';
 import { ProgressIndicator } from '../components/ProgressIndicator';
 import { TypewriterText } from '../components/TypewriterText';
 import { siteContent } from '../data/content';
-import type { ToolChoice } from '../types';
+import type { ToolChoice, QuizMode } from '../types';
 
 interface ToolSceneProps {
   onSelect: (tool: ToolChoice) => void;
+  mode: QuizMode;
 }
-
-const question = siteContent.questions[0];
 
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } },
 };
 
-export function ToolScene({ onSelect }: ToolSceneProps) {
+export function ToolScene({ onSelect, mode }: ToolSceneProps) {
   const [selected, setSelected] = useState<string | null>(null);
+  const question = mode === 'parent' ? siteContent.questionsParent[0] : siteContent.questions[0];
 
   function handleSelect(id: string) {
     setSelected(id);

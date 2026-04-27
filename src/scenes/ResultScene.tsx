@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import type { ArchetypeResult } from '../types';
+import type { ArchetypeResult, QuizMode } from '../types';
 import { GlowButton } from '../components/GlowButton';
 import { TypewriterText } from '../components/TypewriterText';
 import { RotatingTypewriter } from '../components/RotatingTypewriter';
@@ -9,12 +9,11 @@ import ivyEdgeLogo from '../assets/ivy-edge-logo.jpg';
 
 interface ResultSceneProps {
   archetype: ArchetypeResult;
+  mode: QuizMode;
 }
 
 const CALENDLY_URL =
   import.meta.env.VITE_CALENDLY_URL || siteContent.result.calendlyFallbackUrl;
-
-const { result } = siteContent;
 
 const expoOut = [0.22, 1, 0.36, 1] as const;
 
@@ -32,7 +31,8 @@ const containerVariants = {
   visible: { transition: { staggerChildren: 0.18, delayChildren: 0.2 } },
 };
 
-export function ResultScene({ archetype }: ResultSceneProps) {
+export function ResultScene({ archetype, mode }: ResultSceneProps) {
+  const result = mode === 'parent' ? { ...siteContent.result, ...siteContent.resultParent } : siteContent.result;
   const [showCalendly, setShowCalendly] = useState(false);
 
   return (

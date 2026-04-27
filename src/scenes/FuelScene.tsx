@@ -4,21 +4,21 @@ import { OptionCard } from '../components/OptionCard';
 import { ProgressIndicator } from '../components/ProgressIndicator';
 import { TypewriterText } from '../components/TypewriterText';
 import { siteContent } from '../data/content';
-import type { FuelChoice } from '../types';
+import type { FuelChoice, QuizMode } from '../types';
 
 interface FuelSceneProps {
   onSelect: (fuel: FuelChoice) => void;
+  mode: QuizMode;
 }
-
-const question = siteContent.questions[4];
 
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } },
 };
 
-export function FuelScene({ onSelect }: FuelSceneProps) {
+export function FuelScene({ onSelect, mode }: FuelSceneProps) {
   const [selected, setSelected] = useState<string | null>(null);
+  const question = mode === 'parent' ? siteContent.questionsParent[4] : siteContent.questions[4];
 
   function handleSelect(id: string) {
     setSelected(id);

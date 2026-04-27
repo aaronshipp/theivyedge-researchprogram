@@ -4,21 +4,21 @@ import { OptionCard } from '../components/OptionCard';
 import { ProgressIndicator } from '../components/ProgressIndicator';
 import { TypewriterText } from '../components/TypewriterText';
 import { siteContent } from '../data/content';
-import type { OutcomeChoice } from '../types';
+import type { OutcomeChoice, QuizMode } from '../types';
 
 interface OutcomeSceneProps {
   onSelect: (outcome: OutcomeChoice) => void;
+  mode: QuizMode;
 }
-
-const question = siteContent.questions[2];
 
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } },
 };
 
-export function OutcomeScene({ onSelect }: OutcomeSceneProps) {
+export function OutcomeScene({ onSelect, mode }: OutcomeSceneProps) {
   const [selected, setSelected] = useState<string | null>(null);
+  const question = mode === 'parent' ? siteContent.questionsParent[2] : siteContent.questions[2];
 
   function handleSelect(id: string) {
     setSelected(id);

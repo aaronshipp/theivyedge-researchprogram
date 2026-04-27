@@ -14,7 +14,7 @@ import { SynthesisScene } from './scenes/SynthesisScene';
 import { ResultScene } from './scenes/ResultScene';
 import { ExportScene } from './scenes/ExportScene';
 import { computeArchetype } from './lib/archetypeMapper';
-import type { ToolChoice, ScaleChoice, OutcomeChoice, CrewChoice, FuelChoice } from './types';
+import type { ToolChoice, ScaleChoice, OutcomeChoice, CrewChoice, FuelChoice, QuizMode } from './types';
 
 function QuizApp() {
   const [state, dispatch] = useQuiz();
@@ -22,16 +22,18 @@ function QuizApp() {
   function renderScene() {
     switch (state.currentScene) {
       case 1:
-        return <IntroScene onNext={() => dispatch({ type: 'START' })} />;
+        return <IntroScene onNext={(mode: QuizMode) => dispatch({ type: 'START', payload: mode })} />;
       case 2:
         return (
           <ToolScene
+            mode={state.mode}
             onSelect={(tool: ToolChoice) => dispatch({ type: 'ANSWER_TOOL', payload: tool })}
           />
         );
       case 3:
         return (
           <ScaleScene
+            mode={state.mode}
             onSelect={(scale: ScaleChoice) =>
               dispatch({ type: 'ANSWER_SCALE', payload: scale })
             }
@@ -40,6 +42,7 @@ function QuizApp() {
       case 4:
         return (
           <OutcomeScene
+            mode={state.mode}
             onSelect={(outcome: OutcomeChoice) =>
               dispatch({ type: 'ANSWER_OUTCOME', payload: outcome })
             }
@@ -48,21 +51,23 @@ function QuizApp() {
       case 5:
         return (
           <CrewScene
+            mode={state.mode}
             onSelect={(crew: CrewChoice) => dispatch({ type: 'ANSWER_CREW', payload: crew })}
           />
         );
       case 6:
         return (
           <FuelScene
+            mode={state.mode}
             onSelect={(fuel: FuelChoice) => dispatch({ type: 'ANSWER_FUEL', payload: fuel })}
           />
         );
       case 7:
         return (
-          <SynthesisScene onComplete={() => dispatch({ type: 'SYNTHESIS_COMPLETE' })} />
+          <SynthesisScene mode={state.mode} onComplete={() => dispatch({ type: 'SYNTHESIS_COMPLETE' })} />
         );
       case 8:
-        return <ResultScene archetype={state.archetype!} />;
+        return <ResultScene archetype={state.archetype!} mode={state.mode} />;
     }
   }
 

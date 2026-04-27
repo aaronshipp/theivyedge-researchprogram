@@ -4,9 +4,10 @@ import { TypewriterText } from '../components/TypewriterText';
 import { RevealText } from '../components/RevealText';
 import { siteContent } from '../data/content';
 import ivyEdgeLogo from '../assets/ivy-edge-logo.jpg';
+import type { QuizMode } from '../types';
 
 interface IntroSceneProps {
-  onNext: () => void;
+  onNext: (mode: QuizMode) => void;
 }
 
 const { intro } = siteContent;
@@ -63,13 +64,15 @@ export function IntroScene({ onNext }: IntroSceneProps) {
         {intro.subtext}
       </motion.p>
 
-      {/* CTA — spring entrance */}
+      {/* CTA — two buttons, spring entrance */}
       <motion.div
+        className="flex flex-col items-center gap-4 sm:flex-row"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 2.6 }}
       >
-        <GlowButton label={intro.cta} onClick={onNext} />
+        <GlowButton label="Initiate Sequence: Students" onClick={() => onNext('student')} />
+        <GlowButton label="Initiate Sequence: Parents" onClick={() => onNext('parent')} />
       </motion.div>
 
       {/* Footer */}

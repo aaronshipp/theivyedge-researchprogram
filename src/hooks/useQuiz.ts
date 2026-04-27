@@ -6,12 +6,13 @@ const initialState: QuizState = {
   currentScene: 1,
   answers: {},
   archetype: null,
+  mode: 'student',
 };
 
 function quizReducer(state: QuizState, action: QuizAction): QuizState {
   switch (action.type) {
     case 'START':
-      return { ...state, currentScene: 2 };
+      return { ...state, currentScene: 2, mode: action.payload };
     case 'ANSWER_TOOL':
       return { ...state, currentScene: 3, answers: { ...state.answers, tool: action.payload } };
     case 'ANSWER_SCALE':
@@ -25,7 +26,7 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
       return { ...state, currentScene: 7, answers };
     }
     case 'SYNTHESIS_COMPLETE': {
-      const archetype = computeArchetype(state.answers as CompletedAnswers);
+      const archetype = computeArchetype(state.answers as CompletedAnswers, state.mode);
       return { ...state, currentScene: 8, archetype };
     }
     default:
