@@ -29,13 +29,13 @@ export function IntroScene({ onNext }: IntroSceneProps) {
           transition={{ delay: 0.4, duration: 0.8 }}
           style={{
             boxShadow:
-              '0 0 20px rgba(212, 175, 55, 0.4), 0 0 40px rgba(212, 175, 55, 0.15)',
+              '0 0 20px rgba(39, 108, 192, 0.7), 0 0 40px rgba(39, 108, 192, 0.35)',
           }}
         />
         <img
           src={ivyEdgeLogo}
           alt="Ivy Edge"
-          className="relative z-10 h-20 w-20 rounded-full border border-gold/30 object-cover"
+          className="relative z-10 h-20 w-20 rounded-full border border-[#276cc0]/60 object-cover"
         />
       </motion.div>
 
