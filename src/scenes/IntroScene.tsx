@@ -77,7 +77,7 @@ export function IntroScene({ onNext }: IntroSceneProps) {
 
       {/* Footer */}
       <motion.p
-        className="font-mono text-sm sm:text-base text-text-secondary"
+        className="font-mono text-xs sm:text-sm text-text-secondary"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 3.0, duration: 0.5 }}
