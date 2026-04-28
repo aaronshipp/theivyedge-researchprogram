@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import type { ArchetypeResult, QuizMode } from '../types';
 import { GlowButton } from '../components/GlowButton';
 import { TypewriterText } from '../components/TypewriterText';
@@ -12,8 +11,7 @@ interface ResultSceneProps {
   mode: QuizMode;
 }
 
-const CALENDLY_URL =
-  import.meta.env.VITE_CALENDLY_URL || siteContent.result.calendlyFallbackUrl;
+const BOOKING_URL = 'https://www.ivyedgeresearchprogram.com/book-an-information-session.html';
 
 const expoOut = [0.22, 1, 0.36, 1] as const;
 
@@ -33,7 +31,6 @@ const containerVariants = {
 
 export function ResultScene({ archetype, mode }: ResultSceneProps) {
   const result = mode === 'parent' ? { ...siteContent.result, ...siteContent.resultParent } : siteContent.result;
-  const [showCalendly, setShowCalendly] = useState(false);
 
   return (
     <motion.div
@@ -204,51 +201,9 @@ export function ResultScene({ archetype, mode }: ResultSceneProps) {
       >
         <GlowButton
           label={result.ctaLabel}
-          onClick={() => setShowCalendly(true)}
+          onClick={() => window.open(BOOKING_URL, '_blank', 'noopener,noreferrer')}
         />
       </motion.div>
-
-      {/* Calendly overlay */}
-      <AnimatePresence>
-        {showCalendly && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {/* Backdrop */}
-            <div
-              className="absolute inset-0 bg-void/80 backdrop-blur-sm"
-              onClick={() => setShowCalendly(false)}
-            />
-
-            {/* Full-viewport panel */}
-            <motion.div
-              className="relative h-full w-full overflow-hidden"
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            >
-              {/* Close button */}
-              <button
-                onClick={() => setShowCalendly(false)}
-                className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-void-light text-lg text-text-muted transition-colors hover:bg-void-lighter hover:text-text-primary"
-              >
-                &#x2715;
-              </button>
-
-              <iframe
-                src={CALENDLY_URL}
-                title="Book a consultation"
-                className="h-full w-full border-0"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.div>
   );
 }
